@@ -16,11 +16,7 @@ replication/
 ├── README.md                              # This file
 ├── data/
 │   ├── dataset_description.json           # Dataset metadata and statistics
-│   ├── lkp_untangle.json                 # LKP-Untangle benchmark (350 cases)
-│   ├── lkp_synth_sample_2k.json          # LKP-Synth 2K fine-tuning pool
-│   ├── lkp_synth_sample_10k.json         # LKP-Synth 10K fine-tuning pool
-│   ├── java_dataset.json                 # Java dataset (Li et al., 2022)
-│   └── csharp_dataset.json               # C# dataset (Partachi et al., 2020)
+│   └── lkp_untangle.json                 # LKP-Untangle benchmark (350 cases)
 ├── scripts/
 │   ├── metrics.py                         # Core evaluation metrics (Eq. 1)
 │   ├── metrics_full.py                    # Extended metrics with level breakdown
@@ -405,26 +401,3 @@ python build_balanced_dataset.py \
 ```
 
 See `scripts/data_construction/README.md` for the full pipeline documentation.
-
-## Key Findings
-
-1. **Exact decomposition is rare**: Best method achieves only 13.1% exact success on LKP-Untangle.
-2. **Function-level overlap is the dominant difficulty**: All methods approach 0% exact success on Hard cases.
-3. **Complementary strengths**: Graph methods excel on Easy cases; LLMs maintain stable relaxed accuracy across difficulties.
-4. **Fine-tuning scales**: Qwen3-32B improves from 4.6% to 11.7% exact success with 10K training examples from LKP-Synth.
-5. **Benchmark methodology matters**: HD-GNN achieves 31.8% on Java (75% Easy) but only 13.1% on LKP-Untangle (39% Hard).
-
-## Citation
-
-```bibtex
-@inproceedings{lkp-untangle2025,
-  title={Rethinking Commit Decomposition Evaluation: Realistic and Scalable Benchmarks},
-  author={Anonymous},
-  booktitle={Proceedings of the IEEE/ACM International Conference on Software Engineering},
-  year={2025}
-}
-```
-
-## License
-
-This replication package is provided for research purposes. The Linux kernel patch data is derived from publicly available mailing list archives (lore.kernel.org).
