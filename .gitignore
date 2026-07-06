@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Data files (too large for git)
+data/csharp_dataset.json
+data/java_dataset.json
+data/lkp_synth_sample_10k.json
+data/lkp_synth_sample_2k.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp

@@ -1,0 +1,4 @@
+Model,Training_Data,Eval_Set,Accuracy_C@100,Accuracy_C@90,Accuracy_C@80
+Qwen3-32B base,None,LKP-Untangle,4.6%,28.3%,38.3%
+Qwen3-32B ft-2K,"2K sampled examples; pos:neg = 3:1",LKP-Untangle,5.4%,28.9%,39.7%
+Qwen3-32B ft-10K,"10K sampled examples; pos:neg = 3:1",LKP-Untangle,11.7%,48.3%,58.3%

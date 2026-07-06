@@ -1,0 +1,57 @@
+{
+  "total_cases": 1612,
+  "accuracy_a_mean": 0.772,
+  "accuracy_a_median": 0.8,
+  "accuracy_c_100": 0.0837,
+  "accuracy_c_90": 0.3331,
+  "accuracy_c_80": 0.5062,
+  "errors": 0,
+  "elapsed_s": 4.4,
+  "by_repo": {
+    "Commandline": {
+      "count": 307,
+      "accuracy_a_mean": 0.7294,
+      "accuracy_c_100": 0.0945
+    },
+    "CommonMark": {
+      "count": 34,
+      "accuracy_a_mean": 0.7906,
+      "accuracy_c_100": 0.0588
+    },
+    "Hangfire": {
+      "count": 331,
+      "accuracy_a_mean": 0.7863,
+      "accuracy_c_100": 0.1299
+    },
+    "Humanizer": {
+      "count": 91,
+      "accuracy_a_mean": 0.7434,
+      "accuracy_c_100": 0.033
+    },
+    "Lean": {
+      "count": 255,
+      "accuracy_a_mean": 0.7808,
+      "accuracy_c_100": 0.1059
+    },
+    "Nancy": {
+      "count": 344,
+      "accuracy_a_mean": 0.8003,
+      "accuracy_c_100": 0.0436
+    },
+    "Newtonsoft.Json": {
+      "count": 69,
+      "accuracy_a_mean": 0.7037,
+      "accuracy_c_100": 0.0145
+    },
+    "Ninject": {
+      "count": 68,
+      "accuracy_a_mean": 0.7887,
+      "accuracy_c_100": 0.0588
+    },
+    "RestSharp": {
+      "count": 113,
+      "accuracy_a_mean": 0.789,
+      "accuracy_c_100": 0.0973
+    }
+  }
+}

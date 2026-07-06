@@ -1,0 +1,76 @@
+{
+  "lkp_untangle": {
+    "description": "LKP-Untangle: 350 review-driven commit decomposition cases from Linux kernel patch review",
+    "language": "C",
+    "cases": 350,
+    "target_groups": "2-5",
+    "changed_lines_avg": 216.1,
+    "changed_lines_median": 100.0,
+    "files_avg": 3.9,
+    "files_median": 2.0,
+    "difficulty_distribution": {
+      "Easy": "34%",
+      "Medium": "27%",
+      "Hard": "39%"
+    },
+    "construction": "Review-confirmed patch splits from Linux kernel mailing list",
+    "role": "Primary evaluation benchmark"
+  },
+  "java_dataset": {
+    "description": "Java commit untangling dataset (Li et al., 2022)",
+    "language": "Java",
+    "cases": "~14K (total 13,500)",
+    "target_groups": "2-3",
+    "changed_lines_avg": 192.8,
+    "changed_lines_median": 91.0,
+    "files_avg": 9.2,
+    "files_median": 5.0,
+    "difficulty_distribution": {
+      "Easy": "75%",
+      "Medium": "21%",
+      "Hard": "4%"
+    },
+    "construction": "Merged existing commits from open-source Java repositories",
+    "role": "Cross-language comparison (OOP setting)",
+    "eval_split": "80/20 train/test, seed=42, test set = 2,700 cases"
+  },
+  "csharp_dataset": {
+    "description": "C# commit untangling dataset (Partachi et al., 2020)",
+    "language": "C#",
+    "cases": 1612,
+    "target_groups": "2-3",
+    "changed_lines_avg": 965.1,
+    "changed_lines_median": 101.0,
+    "files_avg": 17.2,
+    "files_median": 5.0,
+    "difficulty_distribution": {
+      "Easy": "39%",
+      "Medium": "52%",
+      "Hard": "10%"
+    },
+    "construction": "Merged existing commits from C# repositories",
+    "role": "Cross-language comparison (OOP setting)",
+    "eval_split": "80/20 train/test, seed=42, test set = 323 cases"
+  },
+  "lkp_synth": {
+    "description": "LKP-Synth: ~1.07M synthetic training cases from Linux kernel patch series",
+    "language": "C",
+    "cases": "~1.07M (760K positive + 310K negative)",
+    "target_groups": "2-5",
+    "changed_lines_avg": 305.0,
+    "changed_lines_median": 121.6,
+    "files_avg": 4.6,
+    "files_median": 3.0,
+    "difficulty_distribution": {
+      "Easy": "5%",
+      "Medium": "22%",
+      "Hard": "73%"
+    },
+    "construction": "Merged kernel patch series (reverse-merged)",
+    "role": "Training and scaling data",
+    "finetuning_subsets": {
+      "2K": "2,000 examples, pos:neg = 3:1, difficulty balanced 1:1:1",
+      "10K": "10,000 examples, pos:neg = 3:1, difficulty balanced 1:1:1"
+    }
+  }
+}
