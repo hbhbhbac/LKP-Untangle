@@ -18,6 +18,22 @@ from itertools import permutations
 from typing import Dict, List, Optional
 
 
+def _accepted(label):
+    """Gold groups for one line. None means the line is not scored.
+
+    An int is one group. A list is the shared exact/evolved groups, any
+    of which counts as correct after matching.
+    """
+    if label is None or isinstance(label, bool):
+        return None
+    if isinstance(label, int):
+        return (label,)
+    if isinstance(label, (list, tuple)):
+        groups = tuple(group for group in label if isinstance(group, int))
+        return groups or None
+    return None
+
+
 def find_best_mapping(
     pred: List[int], true: List[int],
     num_pred_groups: int, num_true_groups: int
@@ -27,7 +43,11 @@ def find_best_mapping(
     Works efficiently for small group counts (<=6).
     """
     pred_ids = sorted(set(p for p in pred if p is not None))
-    true_ids = sorted(set(t for t in true if t is not None))
+    true_ids = sorted({
+        group
+        for label in true
+        for group in (_accepted(label) or ())
+    })
 
     if not pred_ids or not true_ids:
         return {}
@@ -39,7 +59,7 @@ def find_best_mapping(
         mapping = dict(zip(pred_ids[:len(perm)], perm))
         correct = sum(
             1 for p, t in zip(pred, true)
-            if t is not None and p is not None and mapping.get(p) == t
+            if _accepted(t) is not None and p is not None and mapping.get(p) in _accepted(t)
         )
         if correct > best_correct:
             best_correct = correct
@@ -59,7 +79,7 @@ def accuracy_a(
     valid_pred = []
     valid_true = []
     for p, t in zip(pred_groups, true_groups):
-        if t is not None:
+        if _accepted(t) is not None:
             valid_pred.append(p)
             valid_true.append(t)
 
@@ -67,13 +87,13 @@ def accuracy_a(
         return 0.0
 
     num_pred = len(set(p for p in valid_pred if p is not None))
-    num_true = len(set(valid_true))
+    num_true = len({group for label in valid_true for group in _accepted(label)})
 
     mapping = find_best_mapping(valid_pred, valid_true, num_pred, num_true)
 
     correct = sum(
         1 for p, t in zip(valid_pred, valid_true)
-        if p is not None and mapping.get(p) == t
+        if p is not None and mapping.get(p) in _accepted(t)
     )
     return correct / len(valid_true)
 

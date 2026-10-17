@@ -81,10 +81,10 @@ replication/
 - **350** manually confirmed review-driven cases
 - Language: C (Linux kernel)
 - Target groups: 2–5
-- Changed lines (Avg / Median): 216.1 / 100.0
-- Files (Avg / Median): 3.9 / 2.0
-- Difficulty distribution — Easy : Medium : Hard = 34 : 27 : 39
-- Construction: Reviewer-requested patch splits confirmed by subsequent author-submitted revisions
+- Changed lines (Avg / Median): 283.6 / 115.0
+- Files (Avg / Median): 4.0 / 3.0
+- Difficulty distribution — Easy : Medium : Hard = 37 : 23 : 40
+- Construction: Reviewer-requested patch splits confirmed by subsequent author-submitted revisions. This file is the gold-350 revision of the same 350 cases, with public ids 1–350.
 
 Difficulty levels are defined as:
 - **Easy**: No file overlap between any pair of target groups
@@ -149,7 +149,7 @@ Each case in `lkp_untangle.json` follows this structure:
 - `source.diff`: The tangled (combined) diff representing all changes.
 - `targets`: A list of 2–5 atomic groups. Each target contains the diff lines belonging to that group.
 - `ground_truth`: Structured line-level labels used for evaluation. Contains `files`, each with `lines` entries having `type` (add/del/context/meta) and `group_id` fields.
-- Ground-truth labels for evaluation are extracted from `ground_truth.files[*].lines` where `type` is `"add"` or `"del"`.
+- Ground-truth labels for evaluation are extracted from `ground_truth.files[*].lines` where `type` is `"add"` or `"del"`. Only `exact` and `evolved` lines have a `group_id`. Dropped lines and diff lines without an annotation keep `group_id` null and are not scored. A shared exact or evolved line stores a list of group ids; a match to any of them counts as correct.
 
 ## Evaluation Protocol
 
