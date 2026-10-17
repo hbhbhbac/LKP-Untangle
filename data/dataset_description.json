@@ -4,14 +4,14 @@
     "language": "C",
     "cases": 350,
     "target_groups": "2-5",
-    "changed_lines_avg": 216.1,
-    "changed_lines_median": 100.0,
-    "files_avg": 3.9,
-    "files_median": 2.0,
+    "changed_lines_avg": 283.6,
+    "changed_lines_median": 115.0,
+    "files_avg": 4.0,
+    "files_median": 3.0,
     "difficulty_distribution": {
-      "Easy": "34%",
-      "Medium": "27%",
-      "Hard": "39%"
+      "Easy": "37%",
+      "Medium": "23%",
+      "Hard": "40%"
     },
     "construction": "Review-confirmed patch splits from Linux kernel mailing list",
     "role": "Primary evaluation benchmark"
